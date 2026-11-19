@@ -1,0 +1,695 @@
+/* ==========================================================================
+   ÂME Atelier – Estilos globales y componentes
+   Tema oscuro por defecto + modo claro con tonos de referencia
+   ========================================================================== */
+
+:root {
+  --bg: #2A1F20;
+  --card: #35282A;
+  --ink: #F3E4DF;
+  --mut: #D2BDB8;
+  --rose: #E3B7B3;
+  --pill: #5A4042;
+  --line: #4A3638;
+  --btn: #E3B7B3;
+  --btnt: #2A1F20;
+  --sh: 0 6px 20px #0006;
+
+  color-scheme: dark;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+:root[data-theme="light"] {
+  --bg: #F8F2EE;
+  --card: #FFFDFB;
+  --ink: #4E3B39;
+  --mut: #7A6360;
+  --rose: #8E5A5C;
+  --pill: #F3DFDA;
+  --line: #E7D6D0;
+  --btn: #8E5A5C;
+  --btnt: #FFFFFF;
+  --sh: 0 6px 20px #8e5a5c1c;
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   Base y tipografía
+   ========================================================================== */
+
+html {
+  scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 72px);
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 16px/1.6 Inter, system-ui, sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--card);
+  z-index: 30;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Lora, Georgia, serif;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.2;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+section {
+  padding: 48px 0;
+}
+
+/* ==========================================================================
+   Utilidades y botones
+   ========================================================================== */
+
+.w {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.k {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mut);
+}
+
+.btn {
+  background: var(--btn);
+  color: var(--btnt);
+  border: 0;
+  border-radius: 26px;
+  padding: 11px 22px;
+  min-height: 44px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.btn2 {
+  background: transparent;
+  color: var(--rose);
+  border: 1.5px solid var(--rose);
+  border-radius: 26px;
+  padding: 9px 18px;
+  min-height: 44px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.i {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 11px;
+  font: inherit;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* ==========================================================================
+   Header y navegación
+   ========================================================================== */
+
+header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+}
+
+header .w {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 64px;
+}
+
+.lg {
+  font-family: Lora, serif;
+  font-size: 26px;
+  color: var(--rose);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-decoration: none;
+  flex: 1;
+}
+
+.lg small {
+  display: block;
+  font: 500 9px Inter;
+  letter-spacing: 0.4em;
+  color: var(--mut);
+  margin-top: 3px;
+}
+
+nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+  margin-right: 18px;
+}
+
+.hdr-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 720px) {
+  nav {
+    display: none;
+  }
+
+  .btn2 {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}
+
+/* ==========================================================================
+   Hero y slider
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  margin-top: 18px;
+  box-shadow: var(--sh);
+}
+
+.tr {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.sl {
+  min-width: 100%;
+  height: clamp(340px, 60vw, 500px);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #FFFFFF;
+}
+
+.sl div {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 70px 28px 44px;
+  background: linear-gradient(transparent, #2a1a1ad9);
+}
+
+.sl h2 {
+  font-size: clamp(26px, 5vw, 42px);
+  max-width: 560px;
+}
+
+.sl p {
+  margin: 8px 0 16px;
+  max-width: 460px;
+}
+
+.ar {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 0;
+  background: #fffbf8e6;
+  color: #4A3535;
+  font-size: 22px;
+}
+
+.ar.l {
+  left: 12px;
+}
+
+.ar.r {
+  right: 12px;
+}
+
+.dots {
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.dots button {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  background: none;
+  padding: 0;
+  display: grid;
+  place-items: center;
+}
+
+.dots i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #fff9;
+  display: block;
+}
+
+.dots [aria-current="true"] i {
+  background: #FFFFFF;
+  width: 22px;
+  border-radius: 6px;
+}
+
+/* ==========================================================================
+   Encabezados, filtros y catálogo
+   ========================================================================== */
+
+.hd {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.hd h2 {
+  font-size: clamp(28px, 4vw, 38px);
+  color: var(--rose);
+  margin-top: 6px;
+}
+
+.hd p {
+  font-family: Lora;
+  font-style: italic;
+  color: var(--mut);
+  margin: 6px 0 0;
+}
+
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 26px;
+}
+
+.chip {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 8px 16px;
+  min-height: 44px;
+  font-size: 14px;
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--pill);
+  border-color: var(--rose);
+  font-weight: 600;
+}
+
+.g {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.cd {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--sh);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.cd:hover,
+.cd:focus-visible {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--rose);
+  box-shadow: 0 12px 28px #0000004d;
+}
+
+:root[data-theme="light"] .cd:hover,
+:root[data-theme="light"] .cd:focus-visible {
+  box-shadow: 0 12px 28px #8e5a5c3d;
+}
+
+.cd img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.cd:hover img,
+.cd:focus-visible img {
+  transform: scale(1.04);
+}
+
+.cd div {
+  padding: 14px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.cd h3 {
+  font-size: 19px;
+}
+
+.pr {
+  color: var(--rose);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Modales y opciones de producto
+   ========================================================================== */
+
+dialog {
+  border: 0;
+  border-radius: 22px;
+  padding: 0;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 20px 60px #0005;
+  max-width: min(880px, 94vw);
+  width: 100%;
+  max-height: 92vh;
+}
+
+dialog::backdrop {
+  background: #2a1a1a99;
+}
+
+.pm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 720px) {
+  .pm {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pm img {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  max-height: 520px;
+  object-fit: cover;
+}
+
+.pb {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.x {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--card);
+  font-size: 20px;
+  z-index: 2;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+legend {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.op {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.op label {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 8px 14px;
+  min-height: 40px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.op input {
+  position: absolute;
+  opacity: 0;
+}
+
+.op label:has(input:checked) {
+  background: var(--pill);
+  border-color: var(--rose);
+  font-weight: 600;
+}
+
+.op label:has(input:focus-visible) {
+  outline: 2px solid var(--rose);
+  outline-offset: 2px;
+}
+
+.q {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.q button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--rose);
+  background: none;
+  font-size: 20px;
+  color: var(--rose);
+}
+
+.q b {
+  min-width: 28px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Carrito lateral (drawer)
+   ========================================================================== */
+
+#cart {
+  margin: 0 0 0 auto;
+  height: 100dvh;
+  max-height: 100dvh;
+  width: min(430px, 100%);
+  border-radius: 22px 0 0 22px;
+}
+
+.cin {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  padding: 20px;
+  gap: 12px;
+}
+
+.cl {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ln {
+  display: flex;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+}
+
+.ln img {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.ln .q button {
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+}
+
+/* ==========================================================================
+   Sección "Nosotras", footer y elementos flotantes
+   ========================================================================== */
+
+.abt {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.abt div {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 30px 0 90px;
+  text-align: center;
+  color: var(--mut);
+  font-size: 14px;
+}
+
+footer a {
+  color: var(--rose);
+}
+
+.wa {
+  position: fixed;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  background: #128C4A;
+  color: #FFFFFF;
+  border-radius: 30px;
+  padding: 13px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  z-index: 15;
+  box-shadow: var(--sh);
+}
+
+.ts {
+  position: fixed;
+  left: 50%;
+  bottom: 90px;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--bg);
+  padding: 10px 18px;
+  border-radius: 22px;
+  font-size: 14px;
+  z-index: 60;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.ts.on {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Preferencia de movimiento reducido
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .tr,
+  .cd,
+  .cd img {
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.theme-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--pill);
+  color: var(--ink);
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-btn:hover,
+.theme-btn:focus-visible {
+  transform: scale(1.06);
+  border-color: var(--rose);
+}
+
+/* En tema oscuro (por defecto) se muestra el sol; en tema claro se muestra la luna */
+.theme-btn .ic-moon {
+  display: none;
+}
+
+:root[data-theme="light"] .theme-btn .ic-sun {
+  display: none;
+}
+
+:root[data-theme="light"] .theme-btn .ic-moon {
+  display: block;
+}

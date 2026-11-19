@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ÂME Atelier · Jabones y aromas hechos a mano</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- =====================================================================
+       Encabezado y navegación
+       ===================================================================== -->
+  <header>
+    <div class="w">
+      <a class="lg" href="#top" aria-label="ÂME Atelier, inicio">
+        ÂME<small>ATELIER</small>
+      </a>
+
+      <nav>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#nosotras">Nosotras</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="hdr-actions">
+        <button class="theme-btn" id="tm" type="button" aria-label="Cambiar a tema claro" title="Cambiar a tema claro">
+          <svg class="ic-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.354 15.354A9 9 0 0 1 8.646 3.646 9.003 9.003 0 0 0 12 21a9.003 9.003 0 0 0 8.354-5.646z"></path>
+            <path d="M17 4v4"></path>
+            <path d="M15 6h4"></path>
+            <path d="M19 10v2"></path>
+            <path d="M18 11h2"></path>
+          </svg>
+        </button>
+        <button class="btn2" id="oc" type="button" aria-label="Abrir carrito">Carrito (<span id="cn">0</span>)</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       Contenido principal
+       ===================================================================== -->
+  <main id="top">
+    <!-- Hero / Carrusel -->
+    <div class="w">
+      <div class="hero" role="region" aria-roledescription="carrusel" aria-label="Productos destacados">
+        <div class="tr" id="tr"></div>
+        <button class="ar l" id="pv" aria-label="Anterior">‹</button>
+        <button class="ar r" id="nx" aria-label="Siguiente">›</button>
+        <div class="dots" id="dt"></div>
+      </div>
+    </div>
+
+    <!-- Catálogo -->
+    <section id="catalogo">
+      <div class="w">
+        <div class="hd">
+          <span class="k">Hecho a mano</span>
+          <h2>Nuestro catálogo</h2>
+          <p>Pequeños rituales, aromas delicados y detalles hechos con cariño.</p>
+        </div>
+
+        <div class="chips" id="ch"></div>
+        <div class="g" id="gr"></div>
+      </div>
+    </section>
+
+    <!-- Nosotras -->
+    <section id="nosotras">
+      <div class="w">
+        <div class="hd">
+          <span class="k">Hecho a mano</span>
+          <h2>Bienvenida a ÂME Atelier</h2>
+          <p>El arte de crear con el alma.</p>
+        </div>
+
+        <p style="max-width:660px;margin:0 auto;text-align:center">
+          Creamos pequeños momentos de bienestar para acompañarte en tus rituales cotidianos. Nuestra propuesta reúne cuidado corporal y aromas para el hogar, con una estética delicada, botánica y elegante.
+        </p>
+
+        <div class="abt">
+          <div>
+            <h3>ÂME Skin</h3>
+            <p class="k">Jabones artesanales</p>
+          </div>
+          <div>
+            <h3>ÂME Collections</h3>
+            <p class="k">Velas, wax melts y sachets</p>
+          </div>
+          <div>
+            <h3>Kits para regalar</h3>
+            <p class="k">Combinaciones listas</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       Pie de página y flotantes
+       ===================================================================== -->
+  <footer id="contacto">
+    <div class="w">
+      <h3 style="color:var(--rose)">ÂME Atelier</h3>
+      <p>Cada producto es una invitación a regalarte una pausa.</p>
+      <p><a id="fw" href="#">Escríbenos por WhatsApp</a></p>
+    </div>
+  </footer>
+
+  <a class="wa" id="wb" href="#" target="_blank" rel="noopener">WhatsApp</a>
+  <div class="ts" id="ts" role="status"></div>
+
+  <!-- =====================================================================
+       Modal: Detalle y personalización de producto
+       ===================================================================== -->
+  <dialog id="pd" aria-labelledby="pt">
+    <button class="x" data-close aria-label="Cerrar">✕</button>
+    <div class="pm">
+      <img id="pi" alt="">
+      <div class="pb">
+        <span class="k" id="pc"></span>
+        <h2 id="pt"></h2>
+        <p id="pdsc" style="margin:0;color:var(--mut)"></p>
+        <div id="po"></div>
+
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="q">
+            <button id="m1" aria-label="Menos">−</button>
+            <b id="qv">1</b>
+            <button id="p1" aria-label="Más">+</button>
+          </div>
+          <span class="pr" id="pp" style="font-size:20px"></span>
+        </div>
+
+        <div id="pn"></div>
+        <button class="btn" id="ad">Agregar al carrito</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- =====================================================================
+       Drawer: Carrito y envío por WhatsApp
+       ===================================================================== -->
+  <dialog id="cart" aria-label="Tu pedido">
+    <div class="cin">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2 style="color:var(--rose)">Tu pedido</h2>
+        <button class="btn2" data-close aria-label="Cerrar carrito">Cerrar</button>
+      </div>
+
+      <div class="cl" id="cl"></div>
+
+      <div style="display:flex;justify-content:space-between;font-size:18px">
+        <b>Total</b>
+        <b class="pr" id="ct">$0</b>
+      </div>
+
+      <input class="i" id="nm" placeholder="Tu nombre" aria-label="Tu nombre" autocomplete="name">
+      <textarea class="i" id="nt" rows="2" placeholder="Notas: fecha, dirección, aromas…" aria-label="Notas del pedido"></textarea>
+      <button class="btn" id="sd">Enviar pedido por WhatsApp</button>
+    </div>
+  </dialog>
+
+  <!-- =====================================================================
+       Scripts (respetar orden de dependencias)
+       ===================================================================== -->
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/catalog.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
