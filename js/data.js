@@ -3,6 +3,7 @@
    ========================================================================== */
 
 const IMG = {
+  logo: 'img/logo.png',
   jabon: 'img/jabon.jpg',
   jabon2: 'img/jabon2.jpg',
   vela: 'img/vela.jpg',

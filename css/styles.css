@@ -584,6 +584,18 @@ legend {
    Sección "Nosotras", footer y elementos flotantes
    ========================================================================== */
 
+  .abt-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.abt-logo img {
+  width: min(260px, 72vw);
+  height: auto;
+  display: block;
+}
+
 .abt {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
