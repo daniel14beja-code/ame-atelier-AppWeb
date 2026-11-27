@@ -1,0 +1,64 @@
+id_producto,opcion1,valor1,opcion2,valor2,precio
+avena-y-miel,Presentación,62 g,,,12200
+avena-y-miel,Presentación,63 g,,,12300
+avena-y-miel,Presentación,64 g,,,12300
+avena-y-miel,Presentación,106 g,,,14500
+avena-y-miel,Presentación,108 g,,,14600
+avena-y-miel,Presentación,123 g,,,15200
+arroz-y-leche,Presentación,62 g,,,12200
+arroz-y-leche,Presentación,63 g,,,12300
+arroz-y-leche,Presentación,64 g,,,12300
+arroz-y-leche,Presentación,106 g,,,14600
+arroz-y-leche,Presentación,108 g,,,14700
+arroz-y-leche,Presentación,123 g,,,15300
+coco,Presentación,62 g,,,12200
+coco,Presentación,63 g,,,12300
+coco,Presentación,64 g,,,12300
+coco,Presentación,106 g,,,14500
+coco,Presentación,108 g,,,14600
+coco,Presentación,123 g,,,15200
+cafe,Presentación,62 g,,,13200
+cafe,Presentación,63 g,,,13300
+cafe,Presentación,64 g,,,13400
+cafe,Presentación,106 g,,,14500
+cafe,Presentación,108 g,,,14600
+cafe,Presentación,123 g,,,17300
+carbon-activado,Presentación,62 g,,,14500
+carbon-activado,Presentación,63 g,,,14600
+carbon-activado,Presentación,64 g,,,14600
+carbon-activado,Presentación,106 g,,,17600
+carbon-activado,Presentación,108 g,,,17800
+carbon-activado,Presentación,123 g,,,18600
+velas,Tamaño,Jr,,,11800
+velas,Tamaño,Pequeña,,,13100
+velas,Tamaño,Mediana,,,19700
+velas,Tamaño,Grande,,,33600
+wax-melts,Cantidad,X5,,,3000
+wax-melts,Cantidad,X10,,,7000
+wax-melts,Cantidad,X15,,,11000
+wax-melts,Cantidad,X20,,,15000
+wax-sachet,Presentación,Unidad,,,14000
+pebeteros,Modelo,Clásico,,,20000
+jabon-navideño,Presentación,Unidad,,,15000
+petite-pause,Jabón,62–64 g,Pebetero,Sin pebetero,12500
+petite-pause,Jabón,62–64 g,Pebetero,Con pebetero,28500
+petite-pause,Jabón,106–123 g,Pebetero,Sin pebetero,15500
+petite-pause,Jabón,106–123 g,Pebetero,Con pebetero,31500
+les-trois,Jabones,62–64 g,,,28500
+les-trois,Jabones,106–123 g,,,37500
+nuit-douce,Pebetero,Sin pebetero,,,22500
+nuit-douce,Pebetero,Con pebetero,,,38500
+douce-maison,Presentación,Estándar,,,39000
+rituel-dame,Jabones,62–64 g,Pebetero,Sin pebetero,41500
+rituel-dame,Jabones,62–64 g,Pebetero,Con pebetero,57500
+rituel-dame,Jabones,106–123 g,Pebetero,Sin pebetero,47500
+rituel-dame,Jabones,106–123 g,Pebetero,Con pebetero,63500
+magie-de-noel,Pebetero,Sin pebetero,,,26500
+magie-de-noel,Pebetero,Con pebetero,,,42500
+reve-de-noel,Jabón,62–64 g,Pebetero,Sin pebetero,29000
+reve-de-noel,Jabón,62–64 g,Pebetero,Con pebetero,45000
+reve-de-noel,Jabón,106–123 g,Pebetero,Sin pebetero,32000
+reve-de-noel,Jabón,106–123 g,Pebetero,Con pebetero,48000
+lumiere-de-noel,Presentación,4 velitas,,,16000
+lumiere-de-noel,Presentación,4 velitas con diseño de llama,,,18000
+lumiere-de-noel,Presentación,6 velitas en caja,,,18000

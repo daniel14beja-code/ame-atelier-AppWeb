@@ -1,0 +1,19 @@
+id,coleccion,nombre,descripcion,incluye,aromas,nota,activo,orden
+avena-y-miel,skin,Avena y Miel,"Jabón artesanal suavizante e hidratante para el cuidado diario.",,"Avena y Miel|Coco|Café|Arroz y Leche|Carbón Activado",0,1,1
+arroz-y-leche,skin,Arroz y Leche,"Jabón artesanal cremoso que aporta luminosidad y suavidad a la piel.",,"Arroz y Leche|Avena y Miel|Coco|Café|Carbón Activado",0,1,2
+coco,skin,Coco,"Jabón artesanal nutritivo con aroma cálido y envolvente.",,"Coco|Avena y Miel|Arroz y Leche|Café|Carbón Activado",0,1,3
+cafe,skin,Café,"Jabón artesanal exfoliante suave para renovar la piel.",,"Café|Avena y Miel|Arroz y Leche|Coco|Carbón Activado",0,1,4
+carbon-activado,skin,Carbón Activado,"Jabón artesanal purificante ideal para limpieza profunda.",,"Carbón Activado|Avena y Miel|Arroz y Leche|Coco|Café",0,1,5
+velas,collections,Velas aromáticas,"Un ambiente cálido y acogedor para tus momentos especiales.",,"Vainilla|Lavanda|Coco|Fiesta de flores|Limón-vainilla|Miel|Mango",1,1,6
+wax-melts,collections,Wax melts,"Pequeñas piezas aromáticas para perfumar tus espacios.",,"Vainilla|Lavanda|Coco|Fiesta de flores|Limón-vainilla|Miel|Mango",0,1,7
+wax-sachet,collections,Wax sachets,"Piezas decorativas para perfumar tus espacios.",,"Vainilla|Lavanda|Coco|Fiesta de flores|Limón-vainilla|Miel|Mango",1,1,8
+pebeteros,collections,Pebeteros,"El complemento ideal para disfrutar tus wax melts.",,,,0,1,9
+jabon-navideño,collections,Jabón navideño,"Edición de temporada para acompañar tus rituales festivos.",,"Vainilla|Canela|Lavanda|Coco",1,1,10
+petite-pause,essentiels,Petite Pause,"Un detalle esencial para regalar calma y cuidado cotidiano.","1 jabón artesanal (62–64 g o 106–123 g)|5 wax melts","Avena y Miel|Arroz y Leche|Coco|Café|Carbón Activado",1,1,11
+les-trois,essentiels,Les Trois,"Tres jabones artesanales en una presentación ideal para regalar.","3 jabones artesanales","Avena y Miel|Arroz y Leche|Coco|Café|Carbón Activado",1,1,12
+nuit-douce,essentiels,Nuit Douce,"Ritual sereno para acompañar el descanso.","1 vela mediana|10 wax melts","Vainilla|Lavanda|Coco|Fiesta de flores|Limón-vainilla|Miel|Mango",1,1,13
+douce-maison,essentiels,Douce Maison,"Aromas pensados para vestir tu hogar.","1 wax sachet|1 vela grande","Vainilla|Lavanda|Coco|Fiesta de flores|Limón-vainilla|Miel|Mango",1,1,14
+rituel-dame,essentiels,Rituel d’Âme,"Experiencia completa para el cuidado personal y el hogar.","2 jabones|1 vela mediana|10 wax melts","Avena y Miel|Arroz y Leche|Coco|Café|Carbón Activado",1,1,15
+magie-de-noel,editions,Magie de Noël,"Edición especial con aromas festivos para compartir.","1 wax sachet|10 wax melts|1 pebetero","Vainilla|Lavanda|Coco|Fiesta de flores|Limón-vainilla|Miel|Mango",1,1,16
+reve-de-noel,editions,Rêve de Noël,"Edición navideña pensada para regalar calidez.","Jabón navideño|Vela mediana|15 wax melts","Avena y Miel|Arroz y Leche|Coco|Café|Carbón Activado",1,1,17
+lumiere-de-noel,editions,Lumière de Noël,"Velitas navideñas para iluminar tus celebraciones.",,"Vainilla|Lavanda|Coco|Fiesta de flores|Limón-vainilla|Miel|Mango",1,1,18

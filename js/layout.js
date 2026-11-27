@@ -25,8 +25,20 @@ function applyTheme(theme) {
   }
 }
 
-// Aplica el tema antes de pintar la página para evitar parpadeos
 applyTheme(getSavedTheme() === 'dark' ? 'dark' : 'light');
+
+function syncCustomerFields() {
+  const savedCustomer = typeof Cart.loadCustomer === 'function' ? Cart.loadCustomer() : {};
+  const nameInput = $('#nm') || $('#c-name');
+  const addressInput = $('#ad') || $('#c-address');
+
+  if (nameInput && savedCustomer.name && !nameInput.value.trim()) {
+    nameInput.value = savedCustomer.name;
+  }
+  if (addressInput && savedCustomer.address && !addressInput.value.trim()) {
+    addressInput.value = savedCustomer.address;
+  }
+}
 
 function buildLayout() {
   document.documentElement.classList.add('js');
@@ -35,25 +47,52 @@ function buildLayout() {
   $('#site-header').outerHTML = `<header><div class="w"><a class="lg" href="index.html" aria-label="ÂME Atelier, inicio"><span>ÂME<small>ATELIER</small></span></a><nav id="nv" aria-label="Principal">${NAV.map(([h, t, k]) => `<a href="${h}" ${k === cur ? 'aria-current="page"' : ''}>${t}</a>`).join('')}</nav>${themeBtnHTML}<button class="btn2" id="oc" aria-label="Abrir carrito">Carrito (<span id="cn">0</span>)</button><button class="mb" id="mb" aria-label="Menú" aria-expanded="false" aria-controls="nv">☰</button></div></header>`;
   $('#site-footer').outerHTML = `<footer><div class="w fg"><div><h3>ÂME Atelier</h3><p>El arte de crear con el alma.</p></div><div><b>Explora</b>${NAV.map(([h, t]) => `<a href="${h}">${t}</a>`).join('')}</div><div><b>Contacto</b><a href="${waUrl()}" target="_blank" rel="noopener">WhatsApp · ${CONFIG.telefono}</a><a href="https://instagram.com/${CONFIG.instagram}" target="_blank" rel="noopener">@${CONFIG.instagram}</a></div></div></footer>
 <a class="wa" href="${waUrl(CONFIG.saludoInfo)}" target="_blank" rel="noopener">WhatsApp</a>
-<dialog id="cart" aria-label="Tu pedido"><div class="cin"><div style="display:flex;justify-content:space-between;align-items:center"><h2 style="color:var(--rose)">Tu pedido</h2><button class="btn2" data-close>Cerrar</button></div><div class="cl" id="cl"></div><div style="display:flex;justify-content:space-between;font-size:18px"><b>Total</b><b class="pr" id="ct">$0</b></div><input class="i" id="nm" placeholder="Tu nombre" aria-label="Tu nombre" autocomplete="name"><textarea class="i" id="nt" rows="2" placeholder="Notas: fecha, dirección…" aria-label="Notas del pedido"></textarea><button class="btn" id="sd">Enviar pedido por WhatsApp</button></div></dialog>`;
-  Cart.load(); Cart.render();
+<dialog id="cart" aria-label="Tu pedido"><div class="cin"><div style="display:flex;justify-content:space-between;align-items:center"><h2 style="color:var(--rose)">Tu pedido</h2><button class="btn2" data-close>Cerrar</button></div><div class="cl" id="cl"></div><div style="display:flex;justify-content:space-between;font-size:18px"><b>Total</b><b class="pr" id="ct">$0</b></div><input class="i" id="nm" placeholder="Tu nombre" aria-label="Tu nombre" autocomplete="name"><input class="i" id="ad" placeholder="Tu dirección" aria-label="Tu dirección" autocomplete="street-address"><textarea class="i" id="nt" rows="2" placeholder="Notas adicionales (ej. fecha, portería, horario…)" aria-label="Notas adicionales del pedido"></textarea><button class="btn" id="sd">Enviar pedido por WhatsApp</button></div></dialog>`;
+  Cart.load();
+  Cart.render();
+  syncCustomerFields();
+
+  const persistCustomerInput = () => {
+    Cart.saveCustomer($('#nm')?.value || '', $('#ad')?.value || '');
+  };
+  $('#nm').addEventListener('input', persistCustomerInput);
+  $('#ad').addEventListener('input', persistCustomerInput);
+
   $('#tb').onclick = () => {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     applyTheme(isDark ? 'light' : 'dark');
   };
-  $('#oc').onclick = () => $('#cart').showModal();
-  $('#mb').onclick = () => { const o = $('#nv').classList.toggle('open'); $('#mb').setAttribute('aria-expanded', o) };
-  $('#sd').onclick = () => window.open(waUrl(Cart.message($('#nm').value.trim(), $('#nt').value.trim())), '_blank', 'noopener');
+  $('#oc').onclick = () => {
+    Cart.render();
+    syncCustomerFields();
+    $('#cart').showModal();
+  };
+  $('#mb').onclick = () => {
+    const o = $('#nv').classList.toggle('open');
+    $('#mb').setAttribute('aria-expanded', o);
+  };
+  $('#sd').onclick = () => {
+    const nombre = ($('#nm')?.value || $('#c-name')?.value || '').trim();
+    const direccion = ($('#ad')?.value || $('#c-address')?.value || '').trim();
+    const notas = ($('#nt')?.value || $('#c-notes')?.value || '').trim();
+    const texto = Cart.message(nombre, direccion, notas);
+    const enlace = typeof waUrl === 'function'
+      ? waUrl(texto)
+      : `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(texto)}`;
+    window.open(enlace, '_blank', 'noopener');
+  };
   $('#cart').addEventListener('click', e => {
     const t = e.target, b = t.closest('button'), d = b && b.dataset;
     if (t.id === 'cart' || (d && 'close' in d)) return $('#cart').close();
-    if (d && d.d !== undefined) Cart.change(+d.d, -1); else if (d && d.u !== undefined) Cart.change(+d.u, 1); else if (d && d.r !== undefined) Cart.remove(+d.r)
+    if (d && d.d !== undefined) Cart.change(+d.d, -1); else if (d && d.u !== undefined) Cart.change(+d.u, 1); else if (d && d.r !== undefined) Cart.remove(+d.r);
   });
   addEventListener('storage', e => {
     if (e.key === THEME_KEY && e.newValue) {
       applyTheme(e.newValue);
     } else {
-      Cart.load(); Cart.render();
+      Cart.load();
+      Cart.render();
+      syncCustomerFields();
     }
   });
 }

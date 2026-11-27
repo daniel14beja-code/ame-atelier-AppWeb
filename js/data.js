@@ -30,8 +30,9 @@ const PRODUCTS = [
   { id: 'lumiere-de-noel', col: 'editions', n: 'Lumière de Noël', d: 'Velitas navideñas para iluminar tus celebraciones.', kit: 1, v: [{ o: { Presentación: '4 velitas' }, p: 16000 }, { o: { Presentación: '4 velitas con diseño de llama' }, p: 18000 }, { o: { Presentación: '6 velitas en caja' }, p: 18000 }] }
 ];
 /* Nombres de las fotos: img/<carpeta>/<id>.jpg  (extras: <id>-2.jpg, <id>-3.jpg) */
+PRODUCTS.forEach(p => { p.nota = (p.kit || p.id === 'velas' || p.id === 'wax-sachet' || p.id === 'sachets') ? 1 : 0 });
 const imgOf = p => `img/${COLECCIONES[p.col].dir}/${p.id}.jpg`;
-const dimsOf = p => Object.keys(p.v[0].o).map(k => ({ k, vals: [...new Set(p.v.map(x => x.o[k]))] }));
-const findV = (p, sel) => p.v.find(x => Object.keys(x.o).every(k => x.o[k] === sel[k]));
+const dimsOf = p => (p && p.v && p.v[0] && p.v[0].o) ? Object.keys(p.v[0].o).map(k => ({ k, vals: [...new Set(p.v.map(x => x.o[k]))] })) : [];
+const findV = (p, sel) => p.v.find(x => Object.keys(x.o || {}).every(k => x.o[k] === sel[k]));
 const minP = p => Math.min(...p.v.map(x => x.p));
 const byId = id => PRODUCTS.find(p => p.id === id);

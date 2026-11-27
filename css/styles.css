@@ -51,7 +51,7 @@ html {
     scroll-behavior: smooth
 }
 
-* {
+*, *::before, *::after {
     box-sizing: border-box
 }
 
@@ -392,7 +392,8 @@ section {
 .cols {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 22px
+    gap: 22px;
+    grid-auto-rows: 1fr;
 }
 
 .cd,
@@ -404,20 +405,44 @@ section {
     box-shadow: var(--sh);
     display: flex;
     flex-direction: column;
+    height: 100%;
     text-decoration: none;
     color: var(--ink);
-    transition: transform .25s
+    transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .cc:hover,
-a.cd:hover {
-    transform: translateY(-4px)
+.cd:hover,
+.blk:hover {
+    transform: translateY(-4px);
+}
+
+.cc:hover .bi img,
+.cd:hover .bi img,
+.blk:hover .bi img {
+    transform: scale(1.05);
+}
+
+.cd,
+.cc,
+.blk {
+    transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .bi {
     aspect-ratio: 4/5;
     background: var(--pill);
     overflow: hidden
+}
+
+/* Mismo tamaño de imagen en todas las tarjetas .cd */
+.cd .bm {
+    flex: none;
+}
+
+.cd .bi {
+    aspect-ratio: 4 / 3;
+    height: auto;
 }
 
 .bi img,
@@ -458,7 +483,6 @@ a.cd:hover {
     gap: 10px;
     flex: 1
 }
-
 .bb h3,
 .ct h3 {
     font-size: 21px
@@ -476,31 +500,84 @@ a.cd:hover {
     gap: 24px
 }
 
+/* Hacer el bloque más ancho dentro de su contenedor */
 .blk {
     display: grid;
-    grid-template-columns: minmax(0, .9fr) minmax(0, 1.3fr);
+    grid-template-columns: minmax(280px, 42%) minmax(0, 1fr);
+    align-items: stretch;
+    width: 100%;
+    max-width: 1120px; /* Más ancho para que quepan bien imagen y texto */
+    margin-inline: auto;
     background: var(--card);
     border: 1px solid var(--line);
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: var(--sh)
+    box-shadow: var(--sh);
 }
 
-@media(max-width:760px) {
-    .blk {
-        grid-template-columns: 1fr
-    }
+/* Kits y Velas: dar un poco más de presencia a la imagen sin dejar huecos */
+.blk#velas,
+#kg .blk,
+.blk[data-col="essentiels"],
+.blk[data-col="editions"] {
+    grid-template-columns: minmax(300px, 45%) minmax(0, 1fr);
 }
 
+/* Contenedor de la imagen: ocupa toda la altura de la tarjeta */
+.blk .bm,
 .blk .bi {
-    aspect-ratio: auto;
+    width: 100%;
     height: 100%;
-    min-height: 280px
+    min-height: 100%;
+    max-height: none;
+    aspect-ratio: auto;
+    overflow: hidden;
+    background: var(--pill);
 }
 
+/* La imagen llena todo el espacio lateral sin deformarse ni dejar franjas vacías */
+.blk .bi img {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Columna derecha: texto, opciones y botones con buen respiro */
 .blk .bb {
-    padding: 24px;
-    gap: 12px
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--card);
+    padding: 24px 32px;
+    gap: 12px;
+    min-width: 0;
+}
+
+/* Si los botones de aroma se amontonan, permitir que bajen limpiamente */
+.blk .bb > * {
+    max-width: 100%;
+}
+
+@media (max-width: 820px) {
+    .blk,
+    .blk#velas,
+    #kg .blk,
+    .blk[data-col="essentiels"],
+    .blk[data-col="editions"] {
+        grid-template-columns: 1fr;
+    }
+
+    .blk .bi img {
+        min-height: 240px;
+        max-height: 320px;
+    }
+
+    .blk .bb {
+        padding: 20px;
+    }
 }
 
 .th {
@@ -923,7 +1000,6 @@ footer {
 
 html {
     scroll-behavior: auto
-}
 }
 
 body[data-page="nosotras"] .hd {
