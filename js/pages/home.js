@@ -1,6 +1,6 @@
 /* Inicio: slider, colecciones, cuenta regresiva y buscador de regalo */
 const SL = [
-  { img: 'img/hero/hero-1.jpg', k: 'ÂME Skin', t: 'Pequeños cuidados para acompañar tu piel', h: 'skin.html', c: 'Ver jabones' },
+  { img: 'img/hero/hero-1.jpg', k: 'ÂME Skin', t: 'Bienvenidos a ÂME Atelier', h: 'skin.html', c: 'Ver jabones' },
   { img: 'img/hero/hero-2.jpg', k: 'ÂME Collections', t: 'Aromas que transforman tus espacios', h: 'collections.html', c: 'Ver colección' },
   { img: 'img/hero/hero-3.jpg', k: 'ÂME Éditions', t: 'Detalles para compartir esta temporada', h: 'kits.html#editions', c: 'Ver ediciones' }
 ];
